@@ -65,7 +65,7 @@ let aVar: SomeType | undefined;
 
 beforeEach( ()=> {
    aVar = new SomeType;
-   // This variable is not accessible by test and would require a type new definition for an outer variable :(
+   // This variable is not accessible by test and would require a new type definition for an outer variable :(
    const context = {
        prop1: 'hello';
        prop2: true,
