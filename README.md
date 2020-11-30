@@ -16,7 +16,7 @@ runSpec(
 
     service = new OrderService(this.context, { logging: true })
 
-    'should be able to access dynamic types with full intellisense and type check'() {
+    'should be able to access variable with inferred type full auto-complete and type check'() {
       expect(this.context.auth.isLoggedIn).toBe(true);
     }
 
