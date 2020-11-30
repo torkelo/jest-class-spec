@@ -1,8 +1,8 @@
 {
   "name": "jest-class-spec",
-  "version": "0.0.0-dripip",
+  "version": "0.1.0",
   "main": "dist/index.js",
-  "repository": "git@github.com:prisma-labs/project-lib-typescript.git",
+  "repository": "https://github.com/torkelo/jest-class-spec",
   "author": "Torkel Ödegaard",
   "license": "MIT",
   "files": ["dist"],
