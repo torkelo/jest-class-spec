@@ -1,3 +1,6 @@
+[![npm package](https://img.shields.io/npm/v/jest-class-spec.svg?style=flat-square)](https://www.npmjs.org/package/jest-class-spec)
+[![npm downloads](https://img.shields.io/npm/dt/jest-class-spec.svg?maxAge=2592000)]()
+
 # Jest class spec
 
 Write tests using a class. The constructur works as beforeEach, meaning a new instance is created for every test method. Methods starting with `should` are seen as test methods (it/test in jest). This
