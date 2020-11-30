@@ -1,7 +1,7 @@
 # Jest class spec
 
-Write tests using a class. The constructur works as beforeEach, meaning a new instance is created for every test method. Methods starting with `should` are seen as test methods (it/test in jest). See how
-tests can access variables defined in the class.
+Write tests using a class. The constructur works as beforeEach, meaning a new instance is created for every test method. Methods starting with `should` are seen as test methods (it/test in jest). This
+allows tests to access variables defined in the setup block.
 
 ```typescript
 runSpec(
@@ -52,7 +52,6 @@ No this is not the same. In the above example context & service variables will o
 is why setup code like the above is seen as bad and why using a beforeEach block is better.
 
 
-
 ## Motivation / Why?
 
 
@@ -64,12 +63,12 @@ let aVar: SomeType | undefined;
 
 beforeEach( ()=> {
    aVar = new SomeType;
-   // This also no accessable by test and would require a type definition for an outer variable :(
+   // This variable is not accessible by test and would require a type new definition for an outer variable :(
    const context = {
        prop1: 'hello';
        prop2: true,
    }
-   // This is not accessable
+   // This is not accessible
    const service = new MyService(context);
 });
 
