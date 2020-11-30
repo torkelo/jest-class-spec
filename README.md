@@ -1,5 +1,4 @@
 [![npm package](https://img.shields.io/npm/v/jest-class-spec.svg?style=flat-square)](https://www.npmjs.org/package/jest-class-spec)
-[![npm downloads](https://img.shields.io/npm/dt/jest-class-spec.svg?maxAge=2592000)]()
 
 # Jest class spec
 
