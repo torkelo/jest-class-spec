@@ -1,13 +1,11 @@
 {
   "name": "jest-class-spec",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "repository": "git@github.com:prisma-labs/project-lib-typescript.git",
   "author": "Prisma Labs Team",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "format": "prettier --write .",
     "dev": "tsc --build --watch",
@@ -32,10 +30,7 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
+    "watchPlugins": ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"]
   },
   "prettier": "@prisma-labs/prettier-config"
 }
