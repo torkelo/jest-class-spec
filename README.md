@@ -115,3 +115,4 @@ Then from your code just import it like
 import { runSpec } from '../src/index'
 ```
 
+Think this problem should be addressed in the core Jest library? Then comment on this [feature request](https://github.com/facebook/jest/issues/10886)
