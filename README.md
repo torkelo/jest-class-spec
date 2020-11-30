@@ -100,18 +100,18 @@ export class Given_login_service_with_anonymous_user {
 NPM
 
 ```
-npm install jest-spec-class --save-dev
+npm install jest-class-spec --save-dev
 ```
 
 Yarn
 ```
-yarn add --dev jest-spec-class
+yarn add --dev jest-class-spec
 ```
 
 Then from your code just import it like
 
 ```typescript
-import { runSpec } from '../src/index'
+import { runSpec } from 'jest-class-spec'
 ```
 
 Think this problem should be addressed in the core Jest library? Then comment on this [feature request](https://github.com/facebook/jest/issues/10886)
