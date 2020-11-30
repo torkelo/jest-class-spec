@@ -32,7 +32,7 @@ runSpec(
 
 ```typescript
 describe("Order service", () => {
-  constext = {
+  context = {
     user: { firstName: 'Torkel', lastName: 'Grafana' },
     auth: { isLoggedIn: true }
   };
