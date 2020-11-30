@@ -1,8 +1,8 @@
-name: trunk
+name: Run tests
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   test:
