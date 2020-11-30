@@ -9,7 +9,7 @@ allows tests to access variables defined in the setup block.
 ```typescript
 runSpec(
   class MySpecName {
-    constext = {
+    context = {
       user: { firstName: 'Torkel', lastName: 'Grafana' },
       auth: { isLoggedIn: true }
     };
