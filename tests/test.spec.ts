@@ -3,7 +3,7 @@ import { runSpec } from '../src/index'
 // this is to verify that the tests are executed
 let testMethodsRun = 0
 
-describe('TestRunSpec', () => {
+describe('runSpec', () => {
   runSpec(
     class TestRunSpec {
       instanceVar = {

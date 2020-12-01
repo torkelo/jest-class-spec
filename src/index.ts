@@ -7,7 +7,7 @@ export interface SpecClass {
 export const isTestMethodRegex = new RegExp('^should', 'i')
 
 export function runSpec(Spec: SpecClass) {
-  describe(Spec.constructor.name, () => {
+  describe(Spec.name, () => {
     for (const method of getAllTestMethodNames(Spec)) {
       if (!method.match(isTestMethodRegex)) {
         continue
