@@ -31,12 +31,12 @@ runSpec(
 
 ```typescript
 describe("Order service", () => {
-  context = {
+  const context = {
     user: { firstName: 'Torkel', lastName: 'Grafana' },
     auth: { isLoggedIn: true }
   };
 
-  order = new OrderService(this.context, { logging: true }).create();        
+  const order = new OrderService(this.context, { logging: true }).create();        
 
   it('should set order user', () => {
     expect(order.user).toBe(this.context.user);
