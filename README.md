@@ -13,14 +13,14 @@ runSpec(
       auth: { isLoggedIn: true }
     };
     
-    service = new OrderService(this.context, { logging: true })        
+    order = new OrderService(this.context, { logging: true }).create();        
 
-    'should be able to access variables defined in setup'() {
-      expect(this.context.auth.isLoggedIn).toBe(true);
+    'should set order user'() {
+      expect(this.order.user).toBe(this.context.user);
     }
 
-    'should run each test method in a separate instance'() {      
-      expect(this.serivce.getOrder().firstName).toBe(this.context.user.firstName);
+    'should assign order id'() {      
+      expect(this.order.id).toBe(1);
     }
   }
 );
@@ -36,14 +36,14 @@ describe("Order service", () => {
     auth: { isLoggedIn: true }
   };
 
-  service = new OrderService(this.context, { logging: true })
+  order = new OrderService(this.context, { logging: true }).create();        
 
   it('should be able to access variables defined in setup', () => {
-    expect(this.context.auth.isLoggedIn).toBe(true);
+    expect(this.order.user).toBe(this.context.user);
   }
 
   it('should run each test method in a separate instance', () => {    
-    expect(this.service.getOrder().firstName).toBe(this.context.user.firstName);
+     expect(this.order.id).toBe(1);
   });
 })
 ```
