@@ -18,7 +18,11 @@ runSpec(
     'should set order user'() {
       expect(this.order.user).toBe(this.context.user);
     }
-
+    
+    'should not have side effects for other tests'() {
+      this.order.id = 100;
+    }
+    
     'should assign order id'() {      
       expect(this.order.id).toBe(1);
     }
@@ -41,6 +45,11 @@ describe("When creating order", () => {
   it('should set order user', () => {
     expect(order.user).toBe(this.context.user);
   }
+  
+  it('should not have side effects for other tests, () => {  
+     // this will break the next text
+     order.id = 100;
+  });
 
   it('should assign order id', () => {    
      expect(order.id).toBe(1);
