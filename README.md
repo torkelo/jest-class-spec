@@ -39,11 +39,11 @@ describe("Order service", () => {
   order = new OrderService(this.context, { logging: true }).create();        
 
   it('should set order user', () => {
-    expect(this.order.user).toBe(this.context.user);
+    expect(order.user).toBe(this.context.user);
   }
 
   it('should assign order id', () => {    
-     expect(this.order.id).toBe(1);
+     expect(order.id).toBe(1);
   });
 })
 ```
