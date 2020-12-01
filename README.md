@@ -38,11 +38,11 @@ describe("Order service", () => {
 
   order = new OrderService(this.context, { logging: true }).create();        
 
-  it('should be able to access variables defined in setup', () => {
+  it('should set order user', () => {
     expect(this.order.user).toBe(this.context.user);
   }
 
-  it('should run each test method in a separate instance', () => {    
+  it('should assign order id', () => {    
      expect(this.order.id).toBe(1);
   });
 })
