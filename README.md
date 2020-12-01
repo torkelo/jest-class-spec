@@ -30,7 +30,7 @@ runSpec(
 **Wait is this not the same as this?**
 
 ```typescript
-describe("Order service", () => {
+describe("When creating order", () => {
   const context = {
     user: { firstName: 'Torkel', lastName: 'Grafana' },
     auth: { isLoggedIn: true }
