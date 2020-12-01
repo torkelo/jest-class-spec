@@ -48,7 +48,7 @@ describe("When creating order", () => {
 })
 ```
 
-No this is not the same. In the above example context & service variables will only be created once and shared in both tests, so a side-effect / state modification in the first test can impact the next. That
+No this is not the same. In the above example context & order variables will only be created once and shared in both tests, so a side-effect / state modification in the first test can impact the next. That
 is why setup code like the above is seen as bad and why using a beforeEach block is better.
 
 
