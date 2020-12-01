@@ -7,21 +7,22 @@ allows tests to access variables defined in the setup block.
 
 ```typescript
 runSpec(
-  class MySpecName {
+  class When_creating_order {
     context = {
       user: { firstName: 'Torkel', lastName: 'Grafana' },
       auth: { isLoggedIn: true }
     };
-
+    
     service = new OrderService(this.context, { logging: true })
+    
+    order = this.service.createOrder();
 
-    'should be able to access variable with inferred type full auto-complete and type check'() {
+    'should be able to access variables defined in setup'() {
       expect(this.context.auth.isLoggedIn).toBe(true);
     }
 
-    'should run each test method in a separate instance'() {
-      const order = this.service.createOrder();
-      expect(order.user.firstName).toBe(this.context.user.firstName);
+    'should run each test method in a separate instance'() {      
+      expect(this.order.user.firstName).toBe(this.context.user.firstName);
     }
   }
 );
