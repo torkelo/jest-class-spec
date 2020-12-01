@@ -1,3 +1,5 @@
+[![npm package](https://img.shields.io/npm/v/jest-class-spec.svg?style=flat-square)](https://www.npmjs.org/package/jest-class-spec)
+
 # Jest class spec
 
 Write tests using a class. The constructur works as beforeEach, meaning a new instance is created for every test method. Methods starting with `should` are seen as test methods (it/test in jest). This
@@ -5,21 +7,24 @@ allows tests to access variables defined in the setup block.
 
 ```typescript
 runSpec(
-  class MySpecName {
-    constext = {
+  class When_creating_order {
+    context = {
       user: { firstName: 'Torkel', lastName: 'Grafana' },
       auth: { isLoggedIn: true }
     };
+    
+    order = new OrderService(this.context, { logging: true }).create();        
 
-    service = new OrderService(this.context, { logging: true })
-
-    'should be able to access dynamic types with full intellisense and type check'() {
-      expect(this.context.auth.isLoggedIn).toBe(true);
+    'should set order user'() {
+      expect(this.order.user).toBe(this.context.user);
     }
-
-    'should run each test method in a separate instance'() {
-      const order = this.service.createOrder();
-      expect(order.user.firstName).toBe(this.context.user.firstName);
+    
+    'should not have side effects for other tests'() {
+      this.order.id = 100;
+    }
+    
+    'should assign order id'() {      
+      expect(this.order.id).toBe(1);
     }
   }
 );
@@ -29,26 +34,30 @@ runSpec(
 **Wait is this not the same as this?**
 
 ```typescript
-describe("Order service", () => {
-  constext = {
+describe("When creating order", () => {
+  const context = {
     user: { firstName: 'Torkel', lastName: 'Grafana' },
     auth: { isLoggedIn: true }
   };
 
-  service = new MyService(this.context, { logging: true })
+  const order = new OrderService(this.context, { logging: true }).create();        
 
-  it('should be able to access dynamic types with full intellisense and type check', () => {
-    expect(this.context.auth.isLoggedIn).toBe(true);
+  it('should set order user', () => {
+    expect(order.user).toBe(this.context.user);
   }
+  
+  it('should not have side effects for other tests, () => {  
+     // this will break the next text
+     order.id = 100;
+  });
 
-  it('should run each test method in a separate instance', () => {
-    const newOrder = this.service.createOrder();
-    expect(order.user.firstName).toBe(this.context.user.firstName);
+  it('should assign order id', () => {    
+     expect(order.id).toBe(1);
   });
 })
 ```
 
-No this is not the same. In the above example context & service variables will only be created once and shared in both tests, so a side-effect / state modification in the first test can impact the next. That
+No this is not the same. In the above example context & order variables will only be created once and shared in both tests, so a side-effect / state modification in the first test can impact the next. That
 is why setup code like the above is seen as bad and why using a beforeEach block is better.
 
 
@@ -63,7 +72,7 @@ let aVar: SomeType | undefined;
 
 beforeEach( ()=> {
    aVar = new SomeType;
-   // This variable is not accessible by test and would require a type new definition for an outer variable :(
+   // This variable is not accessible by test and would require a new type definition for an outer variable :(
    const context = {
        prop1: 'hello';
        prop2: true,
@@ -98,17 +107,18 @@ export class Given_login_service_with_anonymous_user {
 NPM
 
 ```
-npm install jest-spec-class --save-dev
+npm install jest-class-spec --save-dev
 ```
 
 Yarn
 ```
-yarn add --dev jest-spec-class
+yarn add --dev jest-class-spec
 ```
 
 Then from your code just import it like
 
 ```typescript
-import { runSpec } from '../src/index'
+import { runSpec } from 'jest-class-spec'
 ```
 
+Think this problem should be addressed in the core Jest library? Then comment on this [feature request](https://github.com/facebook/jest/issues/10886)
